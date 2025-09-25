@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Meals</title>
+</head>
+<body>
+    <h1>Meal Tracker</h1>
+
+    <p>
+        Logged in as <strong><%= user.username %></strong>
+        <a href="/auth/sign-out">Sign out</a>
+    </p>
+
+    <p><a href="/meals/new">Add a new Meal</a></p>
+
+    <% if (meals.length > 0) { %>
+    <ul>
+        <% meals.forEach(meal => { %>
+            <li>
+                <strong><%= meal.name %></strong>
+                (<%= meal.type %> - <%= meal.calories %> kcal)
+
+                <a href="/meals/<%= meal._id %>/edit">Edit</a>
+
+                <form action="/meals/<%= meal._id %>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>        
+        <% }) %>
+    </ul>
+<% } else { %> 
+    <p>no meals yet. Start by <a href="/meals/new">adding one</a>.</p>
+<% } %>
+
+<p><a href="/">Back to Home</a></p>
+ 
+</body>
+</html>
