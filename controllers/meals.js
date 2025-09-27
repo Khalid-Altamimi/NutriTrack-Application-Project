@@ -2,9 +2,8 @@ const Meal = require('../models/meal');
 
 const index = async (req, res) => {
     try {
-        const meals = await Meal.find({user: req.session.user._id}).sort({createAt: -1});
-        const totalCalories = meals.reduce((sum, meal) => sum + meal.calories, 0);
-        res.render('meals/index.ejs' , {meals, totalCalories});
+        const meals = await Meal.find({user: req.session.user._id}).sort({createdAt: -1});
+        res.render('meals/index.ejs' , {meals});
     } catch (error) {
         res.status(500).send('Error fetching meals');
     }
