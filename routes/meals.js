@@ -27,5 +27,3 @@ router.delete('/:id', mealsController.destroy);
 module.exports = router;
 
 
-
-

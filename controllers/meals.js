@@ -30,6 +30,16 @@ const create = async (req, res) => {
     }
 };
 
+const show = async (req, res) => {
+    try {
+        const meal = await Meal.findOne({_id: req.params.id, user: req.session.user._id});
+        if (!meal) return res.redirect('/meals');
+        res.render('meals/show.ejs', {meal});
+    } catch (error) {
+        res.status(400).send('meal not found');
+    }
+};
+
 
 const edit = async (req, res) => {
     try {
@@ -69,6 +79,7 @@ module.exports = {
     index,
     new: newMeal,
     create,
+    show,
     edit,
     update,
     destroy,
