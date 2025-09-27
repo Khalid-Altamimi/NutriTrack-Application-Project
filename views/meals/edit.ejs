@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Meal</title>
+</head>
+<body>
+    <h1>Edit Meal</h1>
+
+    <form action="/meals/<%= meal._id %>?_method=PUT" method="POST">
+        <label for="name">Meal Name:</label>
+        <input
+        type="text"
+        id="name"
+        name="name"
+        value="<%= meal.name %>"
+        required
+        >
+        <br><br>
+
+        <label for="type">Meal Type:</label>
+        <select id="type" name="type" required>
+            <option value="breakfast" <%= meal.type === 'breakfast' ? 'selected' : '' %>>Breakfast</option>
+            <option value="lunch" <%= meal.type === 'lunch' ? 'selected' : '' %>>lunch</option>
+            <option value="dinner" <%= meal.type === 'dinner' ? 'selected' : '' %>>dinner</option>
+            <option value="snack" <%= meal.type === 'snack' ? 'selected' : '' %>>snack</option>
+            
+        </select>
+        <br><br>
+        <label for="calories">Calories:</label>
+        <input
+        type="number"
+        id="calories"
+        name="calories"
+        min="0"
+        value="<%= meal.calories %>"
+        required
+        >
+
+        <br><br>
+        <button type="submit">Update Meal</button> 
+    </form>
+
+    <p><a href="/meals">Back to Meals</a></p>
+    
+</body>
+</html>
