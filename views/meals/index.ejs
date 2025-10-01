@@ -6,6 +6,7 @@
     <title>Your Meals</title>
 </head>
 <body>
+    <link rel="stylesheet" href="/css/style.css">
     <h1>Meal Tracker</h1>
 
     <p>
@@ -24,7 +25,7 @@
 
                 <a href="/meals/<%= meal._id %>/edit">Edit</a>
 
-                <form action="/meals/<%= meal._id %>?_method=DELETE" method="POST">
+                <form action="/meals/<%= meal._id %>?_method=DELETE" method="POST" style="display: inline;">
                     <button type="submit">Delete</button>
                 </form>
             </li>        
@@ -35,6 +36,6 @@
 <% } %>
 
 <p><a href="/">Back to Home</a></p>
- 
+
 </body>
 </html>

@@ -46,6 +46,7 @@ app.use(
 app.use(passUserToView);
 
 // PUBLIC
+app.use(express.static('public'));
 app.get('/', (req, res) => {
   res.render('index.ejs');
 });
@@ -64,3 +65,4 @@ app.get('/vip-lounge', isSignedIn, (req, res) => {
 app.listen(PORT, () => {
   console.log(`The express app is ready on port ${PORT}!`);
 });
+  

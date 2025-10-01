@@ -6,6 +6,7 @@
     <title><%= meal.name %></title>
 </head>
 <body>
+    <link rel="stylesheet" href="/css/style.css">
     <h1><%= meal.name %></h1>
 
     <p><strong>Type:</strong><%= meal.type %></p>
@@ -13,7 +14,7 @@
 
     <p>
         <a href="/meals/<%= meal._id %>/edit">Edit</a>
-        <form action="/meals/<%= meal._id %>?_method=DELETE" method="POST">
+        <form action="/meals/<%= meal._id %>?_method=DELETE" method="POST" style="display: inline;">
             <button type="submit">Delete</button>
         </form>
     </p>
