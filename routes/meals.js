@@ -15,6 +15,9 @@ router.get('/new', mealsController.new);
 router.post('/', mealsController.create);
 
 
+router.get('/:id', mealsController.show);
+
+
 router.get('/:id/edit', mealsController.edit);
 
 
