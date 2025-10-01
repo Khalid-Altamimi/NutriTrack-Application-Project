@@ -4,21 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <link rel="stylesheet" href="/css/style.css">
-<% if (user) { %>
-<h1>Welcome to the app, <%= user.username %>!</h1>
-<p>
-  <a href="/auth/sign-out">Sign out</a>
-  <a href="/meals">Go to meals</a>
-</p>
-<% } else { %>
-<h1>Welcome to the app, guest.</h1>
-<p>
-  <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>.
-</p>
-<% } %>
-
+  <h1>NutriTrack</h1>
+  
+  <% if (user) { %>
+    <h2>Welcome to the app, <%= user.username %>!</h2>
+    <p class="description">
+      NutriTrack helps you keep track of daily meals and calories.<br>
+      Add new meals, edit them, and review your nutrition history to stay healthy.
+    </p>
+    
+    <p>
+      <a href="/meals"><button>Go to meals</button></a>
+      <a href="/auth/sign-out"><button>Sign out</button></a>
+    </p>
+    <% } else { %>
+      
+      <h2>Welcome to the app, guest.</h2>
+      <p class="description">
+        NutriTrack helps you keep track of daily meals and calories.<br>
+        Add new meals, edit them, and review your nutrition history to stay healthy.
+      </p>
+      <p>
+        <a href="/auth/sign-up"><button>Sign up</button></a>
+        <a href="/auth/sign-in"><button>Sign in</button></a>
+      </p>
+      <% } %>
+      
+      
+      <div class="imageContainer">
+        <img src="https://img.freepik.com/premium-vector/fresh-green-red-apple-slices-white-background-healthy-eating-concept_1323048-102468.jpg" />
+      </div>
 </body>
 </html>
